@@ -26,7 +26,7 @@ jobs:
         run: ./gradlew projects
 
       - name: Build demo APKs
-        run: ./gradlew :demo:main:assembleDebug
+        run: ./gradlew :demo:assembleDebug
 
       - name: Show build output tree
         run: find . -type f -name "*.apk"
