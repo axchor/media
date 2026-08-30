@@ -22,11 +22,17 @@ jobs:
       - name: Grant execute permission for Gradle
         run: chmod +x gradlew
 
+      - name: List Gradle projects
+        run: ./gradlew projects
+
       - name: Build demo APK
-        run: ./gradlew :demo:assembleDebug
+        run: ./gradlew :demos:main:assembleDebug
+
+      - name: Show build output tree
+        run: find . -type f -name "*.apk"
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: demo-debug-apk
-          path: demo/build/outputs/apk/debug/demo-debug.apk
+          name: media3-demo-apk
+          path: demos/main/build/outputs/apk/debug/main-debug.apk
