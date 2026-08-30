@@ -3,7 +3,7 @@ name: Build Media3 ExoPlayer Demo
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [ release ]
 
 jobs:
   build:
