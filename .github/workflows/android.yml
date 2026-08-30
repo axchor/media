@@ -25,14 +25,16 @@ jobs:
       - name: List Gradle projects
         run: ./gradlew projects
 
-      - name: Build demo APK
-        run: ./gradlew :demo:assembleDebug
+      - name: Build demo APKs
+        run: ./gradlew :demos:main:assembleDebug
 
       - name: Show build output tree
         run: find . -type f -name "*.apk"
 
-      - name: Upload APK
+      - name: Upload demo APKs
         uses: actions/upload-artifact@v4
         with:
-          name: demo-debug-apk
-          path: demo/build/outputs/apk/debug/demo-debug.apk
+          name: media-demo-apks
+          path: |
+            demos/main/buildout/outputs/apk/withDecoderExtensions/debug/demo-withDecoderExtensions-debug.apk
+            demos/main/buildout/outputs/apk/noDecoderExtensions/debug/demo-noDecoderExtensions-debug.apk
